@@ -10,7 +10,8 @@ Your character awakes in underground depths of an ancient ruin.  You've no idea 
 I personally have a few goals in beginning this project.
 * Get back into programming for personal growth, personal entertainment, et cetera.  Doing software development at the day job has robbed the fun from something I began doing when I was six years old... and I think I'd be better off if I could enjoy doing this again.
 * LEARN Rakudo/Perl6
-* Make another game... the last one I made and completed was back in '93 or '94.
+* Make another game... the last one I made and completed was back in '93 or '94. (see: http://www.aderack.com/game-maker/index.php?title=Orb:_The_Derelict_Planet)
+** In fact... make the FIRST game in a universe I've been poking at, conceptually, SINCE releasing the last.
 * Populate github with something of note.  It has been... anemic.
 
 ## gameplay
