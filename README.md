@@ -45,11 +45,30 @@ In this section the basic methods of play are described.
   * `weigh`
   * `push` or `shove`
   * `pull`
-  * `turn` or `rotate`
+  * `turn` or `rotate` or `twist`
   * `lift` or `heft`
   * `grasp` or `grab`
   * `release`
+  * `fit` or `attach`
+  * `unfit` or `disattach`
+  * `place` or `insert`
+  * `remove` or `extract`
+  * `stack` or `lay`
+  * `unstack` or `unlay`
+  * `assemble` or `build`
+  * `disassemble` or `
 
+### conflict
+* This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
+  * `aim` 
+  * `bl` or `block`
+  * `sl` or `slash`
+  * `bl` or `bludgeon`
+  * `st` or `stab`
+  * `pa` or `parry`
+  * `sh` or `shoot`
+  * `do` or `dodge`
+  * `du` or `duck`
 
 ## development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product.
