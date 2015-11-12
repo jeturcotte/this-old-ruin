@@ -18,12 +18,45 @@ I personally have a few goals in beginning this project.
 ## gameplay
 In this section the basic methods of play are described.
 ### movement
+* Movement commands made available will be very similar to those of MUD games. Each of these assume that a path in that direction has been made available within the room that the player currently is in.
+  * `u` or `up` 
+  * `d` or `down`
+  * `n` or `north`
+  * `ne` or `northeast`
+  * `e` or `east`
+  * `se` or `southeast`
+  * `s` or `south`
+  * `sw` or `southwest`
+  * `w` or `west`
+  * `nw` or `northwest`
+  * `i` or `in` or `en` or `enter`
+  * `o` or `out` or `ex` or `exit`
+
 ### examination
-### interaction
+* A critical part of interactive with the game invovles examining your surroudings and/or objects within it.
+  * `look`
+  * `touch` or `feel`
+  * `smell` or `sniff`
+  * `listen`
+  * `taste` or `lick`
+  
+### manipulation
+* Manipulating objects is core to operating the world in which your character finds itself.
+  * `weigh`
+  * `push` or `shove`
+  * `pull`
+  * `turn` or `rotate`
+  * `lift` or `heft`
+  * `grasp` or `grab`
+  * `release`
+
 
 ## development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product.
 ### basic interfacing
+* In order to separate user input from a tic based event engine, I will been to build a tic based event engine and, presumably, a means of connecting to it.  A socket, perhaps.
+* The interface itself will provide a prompt that the player is expected to use to input commands.
+
 ### event looping
 ### character maintenance
 ### world generation
