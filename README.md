@@ -34,15 +34,16 @@ In this section the basic methods of play are described.
 
 ### examination
 * A critical part of interactive with the game invovles examining your surroudings and/or objects within it.
+  * `examine` or `study`
   * `look`
   * `touch` or `feel`
+  * `weigh`
   * `smell` or `sniff`
   * `listen`
   * `taste` or `lick`
   
 ### manipulation
 * Manipulating objects is core to operating the world in which your character finds itself.
-  * `weigh`
   * `push` or `shove`
   * `pull`
   * `turn` or `rotate` or `twist`
