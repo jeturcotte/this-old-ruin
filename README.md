@@ -78,14 +78,31 @@ In this section the basic methods of play are described.
   * `h` or `hide`
 
 ## development
-In this section I will attempt to lay out the major milestones necessary to achieve a complete product.
+In this section I will attempt to lay out the major milestones necessary to achieve a complete product
 
 ### event looping
-* Starting a game involves creating a persistent engine that engages in looping through tics.
-* Each tic involves a number of checks and emits events to any reading interface.
-  * Some events may be pre-indexed to future tics at the point of their creation.
+Starting a game involves creating a persistent engine that engages in looping through tics
+* Each tic involves a number of checks and emits events to any reading interface
+  * Some events may be pre-indexed to future tics at the point of their creation
   * Others may culminate based on evolving events initiated in the past
   * Others still may be based on random chance
+
+### game interface
+Following the production of at event emitting engine, there will have to be an interface which can read those emissions and submit events back to said engine as well.
+* The interface initializes the engine
+  * If a saved game is sent along with the initialization script, it will be loaded
+  * Otherwise, a new game will be generated at random
+* Once loaded, a description will be set to the interface from the engine of the player's current location
+* The engine will also report and registered events that have come to pass as tics pass
+* The interface will allow the player to report events back to the engine, which will react accordingly
+  * The player can MOVE along available paths from one ROOM to the next
+  * The player can EXAMINE the ROOM itself as well as any OBJECTs present
+  * The player can MANIPULATE the ROOM and/or any OBJECTs present, as well as their self 
+  * The player can engage in CONFLICT with animate OBJECTs or CREATUREs that may be present
+  * The player can DISENGAGE from the game through a variety of means
+    * A player that seeks shelter will return to the game later in better condition than they were, with very little change of a negative random event being assigned to their return
+    * A player that simply quits will return to the game later in equal condition, but with a high chance of having to endure a negative random event upon return
+    * A player that breaks the connection without manually quitting is guaranteed a harsh negative random event upon return
  
 ### character maintenance
 ### world generation
