@@ -49,14 +49,19 @@ In this section the basic methods of play are described.
   * `lift` or `heft`
   * `grasp` or `grab`
   * `release`
-  * `fit` or `attach`
-  * `unfit` or `disattach`
+  * `fit` or `attach` or `splice` or `combine`
+  * `unfit` or `disattach` or `split` 
   * `place` or `insert`
   * `remove` or `extract`
   * `stack` or `lay`
   * `unstack` or `unlay`
-  * `assemble` or `build`
-  * `disassemble` or `
+  * `assemble` or `build` or `construct`
+  * `disassemble` or `unbuild` or `deconstruct`
+  * `carve` or `etch`
+  * `polish` or `smooth`
+  * `insert`
+  * `extract`
+  
 
 ### conflict
 * This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
@@ -69,14 +74,19 @@ In this section the basic methods of play are described.
   * `sh` or `shoot`
   * `do` or `dodge`
   * `du` or `duck`
+  * `fl` or `flee`
+  * `h` or `hide`
 
 ## development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product.
-### basic interfacing
-* In order to separate user input from a tic based event engine, I will been to build a tic based event engine and, presumably, a means of connecting to it.  A socket, perhaps.
-* The interface itself will provide a prompt that the player is expected to use to input commands.
 
 ### event looping
+* Starting a game involves creating a persistent engine that engages in looping through tics.
+* Each tic involves a number of checks and emits events to any reading interface.
+  * Some events may be pre-indexed to future tics at the point of their creation.
+  * Others may culminate based on evolving events initiated in the past
+  * Others still may be based on random chance
+ 
 ### character maintenance
 ### world generation
 ### plot generation
