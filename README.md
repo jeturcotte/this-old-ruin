@@ -62,7 +62,9 @@ In this section the basic methods of play are described.
   * `polish` or `smooth`
   * `insert`
   * `extract`
-  
+  * `write` or `scribe`
+  * `erase` or `redact`
+  * `fiddle` or `tinker` or `experiment`
 
 ### conflict
 * This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
@@ -77,6 +79,10 @@ In this section the basic methods of play are described.
   * `du` or `duck`
   * `fl` or `flee`
   * `h` or `hide`
+  * `ba` or `bash`
+  * `gr` or `grapple`
+  * `tr` or `trip`
+  * `t` or `toss` or `throw`
 
 ## development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product
