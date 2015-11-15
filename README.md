@@ -114,3 +114,5 @@ Following the production of at event emitting engine, there will have to be an i
 ### character maintenance
 ### world generation
 ### plot generation
+## TODO
+* Check out https://github.com/tony-o/perl6-event-emitter/
