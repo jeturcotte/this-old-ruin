@@ -135,4 +135,12 @@ Given an engine, an interface, and a world full of things and places, the game a
 
 ## TODO
 * Check out https://github.com/tony-o/perl6-event-emitter/
+  * Possibly relevant when it comes to either the client or the engine emitting events to the other
 * Check out https://github.com/tokuhirom/p6-WebSocket
+  * If I can get a looping engine up and running, it is going to need a persistent communications conduit.  First notion is web sockets.
+* Check out https://github.com/tadzik/Terminal-ANSIColor/
+  * Being a text game, coloring text seems... you know... kinda useful.
+  
+## ALTERNATIVELY
+Looks like I'm not the only one!
+* https://github.com/masak/Adventure-Engine
