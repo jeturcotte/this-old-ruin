@@ -111,8 +111,28 @@ Following the production of at event emitting engine, there will have to be an i
     * A player that simply quits will return to the game later in equal condition, but with a high chance of having to endure a negative random event upon return
     * A player that breaks the connection without manually quitting is guaranteed a harsh negative random event upon return
  
-### character maintenance
-### world generation
+### content generation
+Having an engine to which the player's client can talk is not quite enough for a good game.  There must be content, and that content will be generated anew with each new game.  In other words, we will have some amount of procedural rendering, as expressed in text.
+* Every game starts in a ruin, no matter what.
+  * This ruin can be largely indoors or outdoors, or an even blend of both
+  * This ruin can be made from a variety of materials, and not necessarily those common to the region surrounding said ruin
+  * This ruin will be in a variably chosen and mostly (if not completely) consistent condition
+    * Merely Deserted
+    * Intact, but Scarred
+    * Notably Damaged
+    * Severely Damaged
+    * Essentially Destroyed
+    * A Wreckage of Overgrown Debris
+  * The ruin will vary in overall dimension
+* Beyond the extremities of this ruin will lay a variety of `biomes` which, in turn will be logically consistent within larger `realms` that govern their characteristics
+
 ### plot generation
+Given an engine, an interface, and a world full of things and places, the game also needs something to prod the player... to him them motivation to keep playing.  As an avid fan of builder and exploration games, I still find that there comes a point of exhaustion... a point where 'what's the point' is asked.  Generating plotful and meaningful events (e.g., something other than completely random) is necessary to keep the game going.
+* As part of the generation of a world in which to play, the game will also set and play through a few different alternative endeavors that are likely to run contrary to the player's own intentions
+  * This means the development of some basic AI
+    * The nature of each generated AI can vary widely
+    * Each AI needn't be particularly complicated so long as they can pursue their own interests
+
 ## TODO
 * Check out https://github.com/tony-o/perl6-event-emitter/
+* Check out https://github.com/tokuhirom/p6-WebSocket
