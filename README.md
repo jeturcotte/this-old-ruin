@@ -33,8 +33,8 @@ In this section the basic methods of play are described.
   * `o` or `out` or `ex` or `exit`
 
 ### examination
-* A critical part of interactive with the game invovles examining your surroudings and/or objects within it.
-  * `examine` or `study`
+* A critical part of interactive with the game involves examining your surroudings and/or objects within it.
+  * `examine` or `study` or `check`
   * `look`
   * `touch` or `feel`
   * `weigh`
