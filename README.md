@@ -162,6 +162,7 @@ Given an engine, an interface, and a world full of things and places, the game a
 * Check out https://github.com/tokuhirom/p6-WebSocket
   * If I can get a looping engine up and running, it is going to need a persistent communications conduit.  First notion is web sockets.
   * Haven't had luck installing Websocket::P6SGI ... 
+  * Look into IO::Socket::Async instead
 * Check out https://github.com/tadzik/Terminal-ANSIColor/
   * Being a text game, coloring text seems... you know... kinda useful.
   
