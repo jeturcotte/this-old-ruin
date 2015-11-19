@@ -17,6 +17,23 @@ I personally have a few goals in beginning this project.
 
 ## gameplay
 In this section the basic methods of play are described.
+
+### meta
+* Seeing as how you do not actually EXIST in this nonexistant world, there are things you can do that you normally would not be able to...
+  * `q` or `quit`
+  * `debug`
+  * `gameplay`
+
+### character maintenance
+* Playing a being in this alternate universe may, from time to time, require checking on themselves...
+  * `hunger`
+  * `thirst`
+  * `fatigue`
+  * `wounds` or `injuries`
+  * `inventory`
+  * `equipment`
+  * `talents` or `skills`
+
 ### movement
 * Movement commands made available will be very similar to those of MUD games. Each of these assume that a path in that direction has been made available within the room that the player currently is in.
   * `u` or `up` 
@@ -31,6 +48,12 @@ In this section the basic methods of play are described.
   * `nw` or `northwest`
   * `i` or `in` or `en` or `enter`
   * `o` or `out` or `ex` or `exit`
+* More, sometimes you may need to move in these directions in various ways
+  * `walk` (when not specified)
+  * `step`
+  * `run`
+  * `crawl`
+  * `leap`
 
 ### examination
 * A critical part of interactive with the game involves examining your surroudings and/or objects within it.
@@ -138,6 +161,7 @@ Given an engine, an interface, and a world full of things and places, the game a
   * Possibly relevant when it comes to either the client or the engine emitting events to the other
 * Check out https://github.com/tokuhirom/p6-WebSocket
   * If I can get a looping engine up and running, it is going to need a persistent communications conduit.  First notion is web sockets.
+  * Haven't had luck installing Websocket::P6SGI ... 
 * Check out https://github.com/tadzik/Terminal-ANSIColor/
   * Being a text game, coloring text seems... you know... kinda useful.
   
