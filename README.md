@@ -72,7 +72,7 @@ In this section the basic methods of play are described.
   * `turn` or `rotate` or `twist`
   * `lift` or `heft`
   * `grasp` or `grab`
-  * `release`
+  * `release` or `give`
   * `fit` or `attach` or `splice` or `combine`
   * `unfit` or `disattach` or `split` 
   * `place` or `insert`
@@ -88,6 +88,25 @@ In this section the basic methods of play are described.
   * `write` or `scribe`
   * `erase` or `redact`
   * `fiddle` or `tinker` or `experiment`
+  * `scrape`
+
+### interaction
+* Believe it or not, there are other beings in this world you find yourself in, and not all interactions with them must necessarily be violent...
+  * (vocal)
+    * `tell` or `say` or `express`
+    * `ask` or `inquire` or `request`
+    * `command` or `order` or `demand`
+    * `ignore`
+    * `whisper` or `mutter`
+    * `yell` or `proclaim` or `scream`
+    * `listen`
+  * (physical)
+    * `comfort` or `console`
+    * `gesture` or `sign` or `emote`
+    * `dance`
+    * `hug` or `embrace`
+    * `bow`
+    * `restrain` or `tackle`
 
 ### conflict
 * This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
