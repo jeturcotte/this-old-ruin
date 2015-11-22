@@ -82,7 +82,7 @@ In this section the basic methods of play are described.
   * `assemble` or `build` or `construct`
   * `disassemble` or `unbuild` or `deconstruct`
   * `carve` or `etch`
-  * `polish` or `smooth`
+  * `polish` or `smooth` or `sand`
   * `insert`
   * `extract`
   * `write` or `scribe`
@@ -100,6 +100,7 @@ In this section the basic methods of play are described.
     * `whisper` or `mutter`
     * `yell` or `proclaim` or `scream`
     * `listen`
+    * `teach`
   * (physical)
     * `comfort` or `console`
     * `gesture` or `sign` or `emote`
@@ -170,9 +171,17 @@ Having an engine to which the player's client can talk is not quite enough for a
     * A Wreckage of Overgrown Debris
   * The ruin will vary in overall dimension
 * Beyond the extremities of this ruin will lay a variety of `biomes` which, in turn will be logically consistent within larger `realms` that govern their characteristics
+  * Both `realms` and `biomes` impose a list of component `resources` which will, in turn, guide the characteristics on that area as well as a few other things.
+    * The list of resources begin with the `lithosphere` and the `hydrosphere`.
+    * Between those two, a `biosphere` can be determined, from which creatures will populate the game.
+    * Combinations of `biospheres`, `hydrospheres`, and `lithospheres` will determine the likelihood, as well, of `settlements`, if any.
+    * Of course, any `settlement` may well have become a `ruin` and we return to where we began.
 
 ### object generation
 It's not just that there needs to be places where you can go, in game, but there must also be objects with which you can interact.  I kinda hate to suggest that this may be an 'object-oriented' game, to pun a bit, but ... well ...
+* Items, in game, need to be contextually coherent
+  * If a `realm` and/or `biome` comes 
+
 
 ### creature generation
 So, odds are you won't be alone in this world you find yourself in.  Hell, if it were a lifeless place, you'd not be able to breathe and would die immediately... and that's no fun!
