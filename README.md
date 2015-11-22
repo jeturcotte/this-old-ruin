@@ -107,6 +107,7 @@ In this section the basic methods of play are described.
     * `hug` or `embrace`
     * `bow`
     * `restrain` or `tackle`
+    * `exchage` or `trade`
 
 ### conflict
 * This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
@@ -125,6 +126,8 @@ In this section the basic methods of play are described.
   * `gr` or `grapple`
   * `tr` or `trip`
   * `t` or `toss` or `throw`
+  * `k` or `kick`
+  * `tr` or `trip`
 
 ## development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product
@@ -168,6 +171,12 @@ Having an engine to which the player's client can talk is not quite enough for a
   * The ruin will vary in overall dimension
 * Beyond the extremities of this ruin will lay a variety of `biomes` which, in turn will be logically consistent within larger `realms` that govern their characteristics
 
+### object generation
+It's not just that there needs to be places where you can go, in game, but there must also be objects with which you can interact.  I kinda hate to suggest that this may be an 'object-oriented' game, to pun a bit, but ... well ...
+
+### creature generation
+So, odds are you won't be alone in this world you find yourself in.  Hell, if it were a lifeless place, you'd not be able to breathe and would die immediately... and that's no fun!
+
 ### plot generation
 Given an engine, an interface, and a world full of things and places, the game also needs something to prod the player... to him them motivation to keep playing.  As an avid fan of builder and exploration games, I still find that there comes a point of exhaustion... a point where 'what's the point' is asked.  Generating plotful and meaningful events (e.g., something other than completely random) is necessary to keep the game going.
 * As part of the generation of a world in which to play, the game will also set and play through a few different alternative endeavors that are likely to run contrary to the player's own intentions
@@ -178,10 +187,8 @@ Given an engine, an interface, and a world full of things and places, the game a
 ## TODO
 * Check out https://github.com/tony-o/perl6-event-emitter/
   * Possibly relevant when it comes to either the client or the engine emitting events to the other
-* Check out https://github.com/tokuhirom/p6-WebSocket
-  * If I can get a looping engine up and running, it is going to need a persistent communications conduit.  First notion is web sockets.
-  * Haven't had luck installing Websocket::P6SGI ... 
-  * Look into IO::Socket::Async instead
+* Fully explore the usefulness of IO::Socket::Async
+  * Turns out it comes with perl6, but can't be `used` .. just assumed or imported? 
 * Check out https://github.com/tadzik/Terminal-ANSIColor/
   * Being a text game, coloring text seems... you know... kinda useful.
   
