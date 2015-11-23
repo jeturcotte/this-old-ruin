@@ -1,12 +1,12 @@
 # This Old Ruin
 An attempt at creating a new generation of text-based adventure/exploration game.  If you have ever played a MUD game before, you'll probably have an immediate sense of how to proceed with this one.  There are some differences intended, but they are to be discovered rather than simply revealed up front.
 
-## backstory
+# backstory
 There is none.  Well... none I can write about, anyways.
 
 Your character awakes in underground depths of an ancient ruin.  You've no idea who you are.  You've no idea where you are.  You've no idea why you are there.  Consciousness had come slowly until you heard that sound, to which you sat bolt upright in a strange place, in a strangely shaped and softly lined depression surrounded by angular broken stones speckled with small and mildly luminescent plants... perhaps a moss of some sort.  But you can't focus on that; not when that droning grunt could have come from just around the corner.
 
-## goals
+# goals
 I personally have a few goals in beginning this project.
 * Get back into programming for personal growth, personal entertainment, et cetera.  Doing software development at the day job has robbed the fun from something I began doing when I was six years old... and I think I'd be better off if I could enjoy doing this again.
 * LEARN Rakudo/Perl6
@@ -15,16 +15,16 @@ I personally have a few goals in beginning this project.
 * In fact... make the FIRST game in a universe I've been poking at, conceptually, SINCE releasing the last.
 * Populate github with something of note.  It has been... anemic.
 
-## gameplay
+# gameplay
 In this section the basic methods of play are described.
 
-### meta
+## meta
 * Seeing as how you do not actually EXIST in this nonexistant world, there are things you can do that you normally would not be able to...
   * `q` or `quit`
   * `debug`
   * `gameplay`
 
-### character maintenance
+## character maintenance
 * Playing a being in this alternate universe may, from time to time, require checking on themselves...
   * `hunger`
   * `thirst`
@@ -34,7 +34,7 @@ In this section the basic methods of play are described.
   * `equipment`
   * `talents` or `skills`
 
-### movement
+## movement
 * Movement commands made available will be very similar to those of MUD games. Each of these assume that a path in that direction has been made available within the room that the player currently is in.
   * `u` or `up` 
   * `d` or `down`
@@ -55,7 +55,7 @@ In this section the basic methods of play are described.
   * `crawl`
   * `leap`
 
-### examination
+## examination
 * A critical part of interactive with the game involves examining your surroudings and/or objects within it.
   * `examine` or `study` or `check`
   * `look`
@@ -65,7 +65,7 @@ In this section the basic methods of play are described.
   * `listen`
   * `taste` or `lick`
   
-### manipulation
+## manipulation
 * Manipulating objects is core to operating the world in which your character finds itself.
   * `push` or `shove`
   * `pull`
@@ -90,7 +90,7 @@ In this section the basic methods of play are described.
   * `fiddle` or `tinker` or `experiment`
   * `scrape`
 
-### interaction
+## interaction
 * Believe it or not, there are other beings in this world you find yourself in, and not all interactions with them must necessarily be violent...
   * (vocal)
     * `tell` or `say` or `express`
@@ -110,7 +110,7 @@ In this section the basic methods of play are described.
     * `restrain` or `tackle`
     * `exchage` or `trade`
 
-### conflict
+## conflict
 * This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
   * `aim` 
   * `bl` or `block`
@@ -130,17 +130,17 @@ In this section the basic methods of play are described.
   * `k` or `kick`
   * `tr` or `trip`
 
-## development
+# development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product
 
-### event looping
+## event looping
 Starting a game involves creating a persistent engine that engages in looping through tics
 * Each tic involves a number of checks and emits events to any reading interface
   * Some events may be pre-indexed to future tics at the point of their creation
   * Others may culminate based on evolving events initiated in the past
   * Others still may be based on random chance
 
-### game interface
+## game interface
 Following the production of at event emitting engine, there will have to be an interface which can read those emissions and submit events back to said engine as well.
 * The interface initializes the engine
   * If a saved game is sent along with the initialization script, it will be loaded
@@ -157,7 +157,7 @@ Following the production of at event emitting engine, there will have to be an i
     * A player that simply quits will return to the game later in equal condition, but with a high chance of having to endure a negative random event upon return
     * A player that breaks the connection without manually quitting is guaranteed a harsh negative random event upon return
  
-### content generation
+## content generation
 Having an engine to which the player's client can talk is not quite enough for a good game.  There must be content, and that content will be generated anew with each new game.  In other words, we will have some amount of procedural rendering, as expressed in text.
 * Every game starts in a ruin, no matter what.
   * This ruin can be largely indoors or outdoors, or an even blend of both
@@ -177,23 +177,24 @@ Having an engine to which the player's client can talk is not quite enough for a
     * Combinations of `biospheres`, `hydrospheres`, and `lithospheres` will determine the likelihood, as well, of `settlements`, if any.
     * Of course, any `settlement` may well have become a `ruin` and we return to where we began.
 
-### object generation
+## object generation
 It's not just that there needs to be places where you can go, in game, but there must also be objects with which you can interact.  I kinda hate to suggest that this may be an 'object-oriented' game, to pun a bit, but ... well ...
 * Items, in game, need to be contextually coherent
-  * If a `realm` and/or `biome` comes 
+  * If a `realm` and/or `biome` comes, say, from a realm rife with flint or quartz, appropriate objects crafted or grown by anything that might have been native, would probably reflect this.  This also offers as a clue, should one ever need such a thing!
 
-
-### creature generation
+## creature generation
 So, odds are you won't be alone in this world you find yourself in.  Hell, if it were a lifeless place, you'd not be able to breathe and would die immediately... and that's no fun!
+* Creatures that habit one or more `biomes` are naturally shaped by them.
+  
 
-### plot generation
+## plot generation
 Given an engine, an interface, and a world full of things and places, the game also needs something to prod the player... to him them motivation to keep playing.  As an avid fan of builder and exploration games, I still find that there comes a point of exhaustion... a point where 'what's the point' is asked.  Generating plotful and meaningful events (e.g., something other than completely random) is necessary to keep the game going.
 * As part of the generation of a world in which to play, the game will also set and play through a few different alternative endeavors that are likely to run contrary to the player's own intentions
   * This means the development of some basic AI
     * The nature of each generated AI can vary widely
     * Each AI needn't be particularly complicated so long as they can pursue their own interests
 
-## TODO
+# TODO
 * Check out https://github.com/tony-o/perl6-event-emitter/
   * Possibly relevant when it comes to either the client or the engine emitting events to the other
 * Fully explore the usefulness of IO::Socket::Async
@@ -201,6 +202,6 @@ Given an engine, an interface, and a world full of things and places, the game a
 * Check out https://github.com/tadzik/Terminal-ANSIColor/
   * Being a text game, coloring text seems... you know... kinda useful.
   
-## ALTERNATIVELY
+# ALTERNATIVELY
 Looks like I'm not the only one!
 * https://github.com/masak/Adventure-Engine
