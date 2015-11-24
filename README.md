@@ -195,13 +195,26 @@ Given an engine, an interface, and a world full of things and places, the game a
     * Each AI needn't be particularly complicated so long as they can pursue their own interests
 
 # TODO
-* Check out https://github.com/tony-o/perl6-event-emitter/
-  * Possibly relevant when it comes to either the client or the engine emitting events to the other
-* Fully explore the usefulness of IO::Socket::Async
-  * Turns out it comes with perl6, but can't be `used` .. just assumed or imported? 
-* Check out https://github.com/tadzik/Terminal-ANSIColor/
-  * Being a text game, coloring text seems... you know... kinda useful.
-  
+Here be dragons...!
+
+## Build a game engine framework that accepts connections and processes tics
+
+## Build a client that communicates with the game engine
+
+## Build an algorithm that renders basic `realm` and `biome` areas and borders
+
+## Build an algorithm for the creation of plausible rooms within these areas
+
+## Build an algorithm for the population of these areas with plausible `resources`
+
+## Build an algorithm for the population of these areas with plausible `creatures`
+
+## Build an algorithm for the population of `objects` that originating from `creatures`
+
+## Build an algorithm for the intelligent animation of `creatures` in the world
+
+## Build an algorithm for the establishment of `goals` and `quests` in the world 
+ 
 # ALTERNATIVELY
 Looks like I'm not the only one!
 * https://github.com/masak/Adventure-Engine
