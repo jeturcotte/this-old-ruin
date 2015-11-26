@@ -197,13 +197,13 @@ Given an engine, an interface, and a world full of things and places, the game a
 # TODO
 Here be dragons...!
 
-### v0.1.* BASIC GAME ENGINE
+### `v0.1.*` BASIC GAME ENGINE
 * Establish a tic-loop daemon
   * this engine separates as a process upon instantiation
   * this engine responds to shutdown commands
   * provide a debug mode that reports out the engine's activities
 
-### v0.2.* BASIC GAME CLIENT 
+### `v0.2.*` BASIC GAME CLIENT 
 * Build a client that communicates with the game engine 
   * Allow for the establishment of a connnection to the game engine
   * Display output from the engine to the client
@@ -213,34 +213,48 @@ Here be dragons...!
   * Add capacity for engine to reject improper commands from the client
   * Offer random paths with very little description that merely test 
 
-### v0.3.* A NOT SO EMPTY WORLD
+### `v0.3.*` A NOT SO EMPTY WORLD
 * Build rendering algorithm that renders basic `realm` and `biome` areas and borders
   * Draw dynamially generated realms of several initial types
   * Subdivide each realm into a biome
   * Allow gradients between each
   * Report when passing from area to area
 
-### v0.4.* A NOT SO SANITARY WORLD
+### `v0.4.*` A NOT SO SANITARY WORLD
 * Build an algorithm for the population of these areas with plausible `resources`
   * Develop a mechanism for rendering plausible materials
+    * Consider layering `realms` and `biomes` across `lithospheres` and `hydrospheres` instead and building biomes out of venn thresholds.
   * Assign these materials in part to realms
   * Assign these materials in part to biomes
   * Discern obvious access to these materials in any given room
   * Allow player to examine the surface for presense of these materials
 
-### v0.5.* A NOT SO FLAT WORLD
+### `v0.5.*` A NOT SO FLAT WORLD
 * Build an algorithm for the creation of plausible rooms within these areas
   * Generate plausible and persistant terrain and obstructions
     * TODO: Study popular methods for rendering terrain and translate an appropriate one to purely tabular descriptions that can surround any given room 
+  * Generate plausible material segmentation
 
-### Build an algorithm for the population of these areas with plausible `creatures`
+### `v0.6.*` A NOT SO DEAD WORLD  
+* Build an algorithm for the population of these areas with plausible `creatures`
+  * Based on `hydrosphere` and `lithosphere`, generate a `biosphere`
+  * Procedurually generate a cadre of `creature plans` for the entire world
+    * Based on their designs, assign a `creature plan` to a set of applicable biomes
+  * For each individual `biome` assign a subselection of appropriate `creature plans` and add on local variations
+  * Develop system for measuring the physical and intellectual characteristics of these `creatures`
+  * Develop system for rendering interaction types available to each `creature` and apply a spectrum of individualization
+    * Is the creature skittish, obtuse, curious, aggressive?
+    * How does the creature defend itself or hunt other creatures?
 
-### Build an algorithm for the population of `objects` that originating from `creatures`
+### `v0.7.*` A NOT SO POOR WORLD 
+* Build an algorithm for the population of `objects` that originating from `creatures`
 
-### Build an algorithm for the intelligent animation of `creatures` in the world
+### `v0.8.*` A NOT SO SAVAGE WORLD
+* Build an algorithm for the intelligent animation of `creatures` in the world
 
-### Build an algorithm for the establishment of `goals` and `quests` in the world 
- 
+### `v0.9.*` A NOT SO RANDOM WORLD
+* Build an algorithm for the establishment of `goals` and `quests` in the world 
+
 # ALTERNATIVELY
 Looks like I'm not the only one!
 * https://github.com/masak/Adventure-Engine
