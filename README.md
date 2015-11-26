@@ -252,8 +252,16 @@ Here be dragons...!
 ### `v0.8.*` A NOT SO SAVAGE WORLD
 * Build an algorithm for the intelligent animation of `creatures` in the world
 
-### `v0.9.*` A NOT SO RANDOM WORLD
-* Build an algorithm for the establishment of `goals` and `quests` in the world 
+### `v0.9.*` A NOT SO UNINHABITED WORLD
+* Build an algorithm for the creation of `ruins` and `communities` in the world
+  * Develop a mechanism for determining where a construct is more likely to have been built
+  * Develop a mechanism for deciding on a plausible layout for the construct
+  * Develop a mechanism for determing what condition the construct is in
+    * Develop a mechanism for decaying the structure in plausible ways
+  * Develop a mechanism for populating the ruin with `creatures` 
+
+### `v1.0.*` NOT SO RANDOM WORLD
+* Build an algorithm for the establishment of `goals` and `quests` in the world
 
 # ALTERNATIVELY
 Looks like I'm not the only one!
