@@ -197,23 +197,49 @@ Given an engine, an interface, and a world full of things and places, the game a
 # TODO
 Here be dragons...!
 
-## Build a game engine framework that accepts connections and processes tics
+### v0.1.* BASIC GAME ENGINE
+* Establish a tic-loop daemon
+  * this engine separates as a process upon instantiation
+  * this engine responds to shutdown commands
+  * provide a debug mode that reports out the engine's activities
 
-## Build a client that communicates with the game engine
+### v0.2.* BASIC GAME CLIENT 
+* Build a client that communicates with the game engine 
+  * Allow for the establishment of a connnection to the game engine
+  * Display output from the engine to the client
+  * Allow the client to send commands to the engine
+* Add to the game engine
+  * Add capacity to understand and honor basic movement commands from the client
+  * Add capacity for engine to reject improper commands from the client
+  * Offer random paths with very little description that merely test 
 
-## Build an algorithm that renders basic `realm` and `biome` areas and borders
+### v0.3.* A NOT SO EMPTY WORLD
+* Build rendering algorithm that renders basic `realm` and `biome` areas and borders
+  * Draw dynamially generated realms of several initial types
+  * Subdivide each realm into a biome
+  * Allow gradients between each
+  * Report when passing from area to area
 
-## Build an algorithm for the creation of plausible rooms within these areas
+### v0.4.* A NOT SO SANITARY WORLD
+* Build an algorithm for the population of these areas with plausible `resources`
+  * Develop a mechanism for rendering plausible materials
+  * Assign these materials in part to realms
+  * Assign these materials in part to biomes
+  * Discern obvious access to these materials in any given room
+  * Allow player to examine the surface for presense of these materials
 
-## Build an algorithm for the population of these areas with plausible `resources`
+### v0.5.* A NOT SO FLAT WORLD
+* Build an algorithm for the creation of plausible rooms within these areas
+  * Generate plausible and persistant terrain and obstructions
+    * TODO: Study popular methods for rendering terrain and translate an appropriate one to purely tabular descriptions that can surround any given room 
 
-## Build an algorithm for the population of these areas with plausible `creatures`
+### Build an algorithm for the population of these areas with plausible `creatures`
 
-## Build an algorithm for the population of `objects` that originating from `creatures`
+### Build an algorithm for the population of `objects` that originating from `creatures`
 
-## Build an algorithm for the intelligent animation of `creatures` in the world
+### Build an algorithm for the intelligent animation of `creatures` in the world
 
-## Build an algorithm for the establishment of `goals` and `quests` in the world 
+### Build an algorithm for the establishment of `goals` and `quests` in the world 
  
 # ALTERNATIVELY
 Looks like I'm not the only one!
