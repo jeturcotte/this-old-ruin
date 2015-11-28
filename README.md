@@ -213,31 +213,33 @@ Here be dragons...!
   * Add capacity for engine to reject improper commands from the client
   * Offer random paths with very little description that merely test 
 
-### `v0.3.*` A NOT SO EMPTY WORLD
-* Build rendering algorithm that renders basic `realm` and `biome` areas and borders
-  * Draw dynamially generated realms of several initial types
-  * Subdivide each realm into a biome
-  * Allow gradients between each
-  * Report when passing from area to area
+### `v0.3.*` A NOT SO FLAT WORLD
+* Derive an algorithm for the rendering of plausible `mineral resources` populate the world
+  * Determine characteristics of each `mineral resource`
+* Build rendering algorithm that renders a variable but plausible `lithosphere`
+  * Splay wide swaths of `mineral resources` in overlapping regions
+  * Determine hardness of a region's surface and erode accordingly
+  * Render veins of concentrated `mineral resources` that may be exposed on the surface
+* Utilize resulting topography to render correct impasses to travel
 
-### `v0.4.*` A NOT SO SANITARY WORLD
-* Build an algorithm for the population of these areas with plausible `resources`
-  * Develop a mechanism for rendering plausible materials
-    * Consider layering `realms` and `biomes` across `lithospheres` and `hydrospheres` instead and building biomes out of venn thresholds.
-  * Assign these materials in part to realms
-  * Assign these materials in part to biomes
-  * Discern obvious access to these materials in any given room
-  * Allow player to examine the surface for presense of these materials
+### `v0.4.*` A NOT SO DRY WORLD
+* Derive a `hydrosphere` altitude that will overlay the `lithosphere`
+* Carve `hydrosphere` paths into the `lithosphere`
+  * Check prevalence of `mineral resources` to influence water pathing and pooling
+  * Check on characteristics of local `mineral resources` to influence characteristics of the `pool` or `stream`
+* Update game engine and client to react accordingly to attempts to travel into the `hydrosphere`
+  * Report when character is wading or not
+  * Report when character is forced to swim
+  * Report when character is completely submerged
+  * Check character's lung capacity and report if struggling
 
-### `v0.5.*` A NOT SO FLAT WORLD
-* Build an algorithm for the creation of plausible rooms within these areas
-  * Generate plausible and persistant terrain and obstructions
-    * TODO: Study popular methods for rendering terrain and translate an appropriate one to purely tabular descriptions that can surround any given room 
-  * Generate plausible material segmentation
-
-### `v0.6.*` A NOT SO DEAD WORLD  
+### `v0.5.*` A NOT SO DEAD WORLD  
+* Build an algorithm that renders a `biosphere`
+  * Consider altitude to the `hydrosphere`
+  * Consider characteristics of the `lithosphere` and local `resources`
+  * Consider characteristics of the `atmosphere`
+  * Calculate thresholds that identify `biomes` from all these variations 
 * Build an algorithm for the population of these areas with plausible `creatures`
-  * Based on `hydrosphere` and `lithosphere`, generate a `biosphere`
   * Procedurually generate a cadre of `creature plans` for the entire world
     * Based on their designs, assign a `creature plan` to a set of applicable biomes
   * For each individual `biome` assign a subselection of appropriate `creature plans` and add on local variations
@@ -246,13 +248,14 @@ Here be dragons...!
     * Is the creature skittish, obtuse, curious, aggressive?
     * How does the creature defend itself or hunt other creatures?
 
-### `v0.7.*` A NOT SO POOR WORLD 
-* Build an algorithm for the population of `objects` that originating from `creatures`
-
-### `v0.8.*` A NOT SO SAVAGE WORLD
+### `v0.6.*` A NOT SO SAFE WORLD
 * Build an algorithm for the intelligent animation of `creatures` in the world
 
-### `v0.9.*` A NOT SO UNINHABITED WORLD
+### `v0.7.*` A NOT SO POOR WORLD 
+* Build an algorithm for the population of `objects` that originating from `resources`
+* Build an algorith mfor the population of `objects` on or left by `creatures`
+
+### `v0.8.*` A NOT SO UNINHABITED WORLD
 * Build an algorithm for the creation of `ruins` and `communities` in the world
   * Develop a mechanism for determining where a construct is more likely to have been built
   * Develop a mechanism for deciding on a plausible layout for the construct
@@ -260,7 +263,7 @@ Here be dragons...!
     * Develop a mechanism for decaying the structure in plausible ways
   * Develop a mechanism for populating the ruin with `creatures` 
 
-### `v1.0.*` NOT SO RANDOM WORLD
+### `v0.9.*` NOT SO RANDOM WORLD
 * Build an algorithm for the establishment of `goals` and `quests` in the world
 
 # ALTERNATIVELY
