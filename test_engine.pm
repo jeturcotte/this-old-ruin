@@ -1,6 +1,6 @@
 use v6;
 
-get_player_commands(); 
+#get_player_commands(); 
 our $target_tics_per_second = 30;
 our $maximum_wait_time = 1000 / $target_tics_per_second;
 our $begin_time;
@@ -14,7 +14,8 @@ while (1) {
   report_events_to_player();
   my $time_elapsed = (DateTime.now().Instant - $begin_time) * 1000;  
   my $tic_leeway = ($time_elapsed / $maximum_wait_time) * 100;
-  sleep($maximum_wait_time - $time_elapsed);
+  say "game tic elapsed with a process usage of $tic_leeway\% ($time_elapsed milliseconds used out of $maximum_wait_time)";
+  sleep(($maximum_wait_time - $time_elapsed)/1000);
 }
 
 sub get_player_commands {
