@@ -1,6 +1,6 @@
 use v6;
 
-#get_player_commands(); 
+get_player_commands(); 
 our $target_tics_per_second = 30;
 our $maximum_wait_time = 1000 / $target_tics_per_second;
 our $begin_time;
@@ -19,11 +19,17 @@ while (1) {
 }
 
 sub get_player_commands {
+  say 'about to react';
   react {
+    say 'reacted... you know, whenever';
     whenever IO::Socket::Async.listen('localhost',3333) -> $conn {
+      say 'we need a supply of bytes';
       my $bs = $conn.bytes-supply;
+      say "we have a supply of bytes ($bs)";
       $bs.tap(-> $buf { await $conn.write: $buf } );
+      say "we just tapped something... now we wait";
       $bs.wait;
+      say "did we just wait?";
     }
   }
 }
