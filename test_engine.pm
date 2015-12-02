@@ -19,17 +19,11 @@ while (1) {
 }
 
 sub get_player_commands {
-  say 'about to react';
   react {
-    say 'reacted... you know, whenever';
     whenever IO::Socket::Async.listen('localhost',3333) -> $conn {
-      say 'we need a supply of bytes';
       my $bs = $conn.bytes-supply;
-      say "we have a supply of bytes ($bs)";
       $bs.tap(-> $buf { await $conn.write: $buf } );
-      say "we just tapped something... now we wait";
       $bs.wait;
-      say "did we just wait?";
     }
   }
 }

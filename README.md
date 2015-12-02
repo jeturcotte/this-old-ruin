@@ -26,6 +26,7 @@ In this section the basic methods of play are described.
 
 ## character maintenance
 * Playing a being in this alternate universe may, from time to time, require checking on themselves...
+  * `check`
   * `hunger`
   * `thirst`
   * `fatigue`
@@ -57,7 +58,7 @@ In this section the basic methods of play are described.
 
 ## examination
 * A critical part of interactive with the game involves examining your surroudings and/or objects within it.
-  * `examine` or `study` or `check`
+  * `examine` or `study`
   * `look`
   * `touch` or `feel`
   * `weigh`
@@ -112,23 +113,27 @@ In this section the basic methods of play are described.
 
 ## conflict
 * This is a harsh world you find yourself in, and you may well end up prey.  Best adjust.
-  * `aim` 
-  * `bl` or `block`
-  * `sl` or `slash`
-  * `bl` or `bludgeon`
-  * `st` or `stab`
-  * `pa` or `parry`
-  * `sh` or `shoot`
-  * `do` or `dodge`
-  * `du` or `duck`
-  * `fl` or `flee`
-  * `h` or `hide`
-  * `ba` or `bash`
-  * `gr` or `grapple`
-  * `tr` or `trip`
-  * `t` or `toss` or `throw`
-  * `k` or `kick`
-  * `tr` or `trip`
+  * defense...
+    * `bl` or `block`
+    * `pa` or `parry`
+    * `do` or `dodge` (`do` is questionable)
+    * `da` or `dash`
+    * `du` or `duck`
+    * `fl` or `flee`
+    * `h` or `hide`
+    * `ro` or `roll`
+  * offense...
+    * `aim`
+    * `sl` or `slash`
+    * `bl` or `bludgeon`
+    * `st` or `stab`
+    * `sh` or `shoot`
+    * `ba` or `bash`
+    * `gr` or `grapple`
+    * `tr` or `trip`
+    * `t` or `toss` or `throw`
+    * `k` or `kick`
+    * `tr` or `trip`
 
 # development
 In this section I will attempt to lay out the major milestones necessary to achieve a complete product
@@ -201,6 +206,12 @@ Here be dragons...!
 ### `v0.1.*` BASIC GAME ENGINE
 * Establish a tic-loop daemon
   * this engine separates as a process upon instantiation
+    * Internally, one threaded process listens for player input from the socket
+      * Commands found are sent to a buffer
+    * Separately, it loops through interpretation and rendering commands
+      * Commands found in the buffer are interpreted, rejected or accepted, and rewarded
+      * Processes that influence the movement and behavior of `creatures` (to be implemented later) are calculated
+      * Processes that influence the game climate (to be implemented later) are then calculated
   * this engine responds to shutdown commands
   * provide a debug mode that reports out the engine's activities
 
