@@ -1,9 +1,10 @@
 use v6;
 
 start get_player_commands(); 
-our $target_tics_per_second = 30;
-our $game_hour = 60 * 60 * $target_tics_per_second; # 24 'days' per real day, or about a day per hour in game time, in tics
-our $maximum_wait_time = 1000 / $target_tics_per_second;
+our $target_tics_per_second = 24;
+our $ten_tic_seconds = $target_tics_per_second * 10;
+our $game_hour = 60 * 5 * $target_tics_per_second; 
+our $maximum_wait_time_in_milliseconds = 1000 / $target_tics_per_second;
 our $begin_time;
 our $time_elapsed;
 our $tic_leeway;
@@ -17,7 +18,7 @@ while (1) {
   my $time_elapsed = (DateTime.now().Instant - $begin_time) * 1000;  
   #my $tic_leeway = ($time_elapsed / $maximum_wait_time) * 100;
   #say "game tic elapsed with a process usage of $tic_leeway\% ($time_elapsed milliseconds used out of $maximum_wait_time)";
-  sleep(($maximum_wait_time - $time_elapsed)/1000);
+  sleep( ($maximum_wait_time_in_milliseconds - $time_elapsed) / 1000 );
 }
 
 sub get_player_commands {
@@ -58,11 +59,11 @@ sub report_events_to_player {
 
 sub determine_if_game_hour_has_passed {
   $which_tic++;
-  unless $which_tic % 300 {
-    say '10 tics have passed';
-  }
+  #unless $which_tic % $ten_tic_seconds {
+  #  say "$ten_tic_seconds tics (10 seconds) have passed"
+  #}
   if $which_tic == $game_hour {
+    say "A game hour ($which_tic tics) has passed";
     $which_tic = 0;
-    say 'A game hour has passed';
   }
 }
