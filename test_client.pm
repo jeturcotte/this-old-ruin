@@ -1,9 +1,15 @@
 use v6;
 
-await IO::Socket::Async.connect('localhost',3333).then( -> $p {
+# TODO -- Pull the following from config instead
+our $port = 7041;
+push our @commands, @*ARGS.perl || 'No command given';
+say "commands given: {@commands}";
+# TODO -- and/or accept command line arguments as override
+
+await IO::Socket::Async.connect('localhost',$port).then( -> $p {
     if $p.status {
         given $p.result {
-            .print('Hello, Perl 6');
+            .print("{@commands}");
             react {
                 whenever .chars-supply() -> $v {
                     $v.say;

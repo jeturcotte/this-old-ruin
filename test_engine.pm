@@ -1,6 +1,7 @@
 use v6;
 
-start get_player_commands(); 
+# TODO -- Pull the following from config instead
+our $port = 7041;
 our $target_tics_per_second = 24;
 our $ten_tic_seconds = $target_tics_per_second * 10;
 our $game_hour = 60 * 5 * $target_tics_per_second; 
@@ -9,7 +10,11 @@ our $begin_time;
 our $time_elapsed;
 our $tic_leeway;
 our $which_tic = 0;
+# TODO -- and/or accept command line arguments as override
 
+# MAIN GAME LOOP
+our @command_buffer;
+start accept_player_commands();
 while (1) {
   $begin_time = DateTime.now().Instant; 
   process_player_commands();
@@ -21,15 +26,21 @@ while (1) {
   sleep( ($maximum_wait_time_in_milliseconds - $time_elapsed) / 1000 );
 }
 
-sub get_player_commands {
+sub accept_player_commands {
   react {
-    whenever IO::Socket::Async.listen('localhost',3333) -> $conn {
+    whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
       my $bs = $conn.bytes-supply;
-      $bs.tap(-> $buf { await $conn.write: $buf } );
-      say 'player command received';
+      $bs.tap(-> $command { await receive_and_respond($conn, $command) } );
       $bs.wait;
     }
   }
+}
+
+sub receive_and_respond ($conn, $command) {
+  push @command_buffer, $command;
+  $conn.write: "received: $command";
+  say "received: $command";
+  return 1;
 }
 
 sub process_player_commands {
@@ -59,9 +70,9 @@ sub report_events_to_player {
 
 sub determine_if_game_hour_has_passed {
   $which_tic++;
-  #unless $which_tic % $ten_tic_seconds {
-  #  say "$ten_tic_seconds tics (10 seconds) have passed"
-  #}
+  unless $which_tic % $ten_tic_seconds {
+    say "$ten_tic_seconds tics (10 seconds) have passed"
+  }
   if $which_tic == $game_hour {
     say "A game hour ($which_tic tics) has passed";
     $which_tic = 0;
