@@ -30,18 +30,18 @@ sub accept_player_commands {
   react {
     whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
       my $bs = $conn.bytes-supply;
-      $bs.tap(-> $command { await receive_and_respond($conn, $command) } );
+      $bs.tap(-> $command { await $conn.write: $command } ); #"received ($command)" } );
       $bs.wait;
     }
   }
 }
 
-sub receive_and_respond ($conn, $command) {
-  push @command_buffer, $command;
-  $conn.write: "received: $command";
-  say "received: $command";
-  return 1;
-}
+#sub receive_and_respond ($conn, $command) {
+#  push @command_buffer, $command;
+#  $conn.write: "received: $command";
+#  say "received: $command";
+#  return 1;
+#}
 
 sub process_player_commands {
   # process player movement request
