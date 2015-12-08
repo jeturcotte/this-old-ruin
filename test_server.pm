@@ -7,10 +7,10 @@ my $server = IO::Socket::INET.new(
   :listen(10)
 );
 
-loop {
+#loop {
   my $connection = $server.accept;
   while my $inc = $connection.recv(:bin) {
-    say "heard $inc";
-    $connection.write: 'ok!\n';
+    say 'okay, I got something';
+    $connection.write: $inc;
   }
-}
+#}
