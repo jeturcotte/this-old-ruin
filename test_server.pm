@@ -7,10 +7,8 @@ my $server = IO::Socket::INET.new(
   :listen(10)
 );
 
-#loop {
-  my $connection = $server.accept;
-  while my $inc = $connection.recv(:bin) {
-    say 'okay, I got something';
-    $connection.write: $inc;
-  }
-#}
+my $connection = $server.accept;
+while my $inc = $connection.recv(:bin) {
+  my $command = $inc.decode;
+  $connection.write: "got: $command".encode;
+}
