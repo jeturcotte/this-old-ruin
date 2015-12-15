@@ -8,16 +8,16 @@ our $port = 7041;
 
 await IO::Socket::Async.connect('localhost',$port).then( -> $p {
     if $p.status {
-        my $msg = prompt(' >');
+        #my $msg = prompt(' >');
         given $p.result {
-            .print($msg);
+            .print('whee');
             react {
                 whenever .chars-supply() -> $v {
                     $v.say;
                     done;
                 }
             }
-#            .close;
+            .close;
         }
     }
 });

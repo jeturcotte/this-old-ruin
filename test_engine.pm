@@ -29,8 +29,11 @@ while (1) {
 sub accept_player_commands {
   react {
     whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
-      my $bs = $conn.bytes-supply;
-      $bs.tap(-> $command { await $conn.write: $command } ); #"received ($command)" } );
+      my $bs = $conn.chars-supply;
+      $bs.tap(-> $command { 
+          say $command; 
+          await $conn.write: $command
+      } );
       $bs.wait;
     }
   }

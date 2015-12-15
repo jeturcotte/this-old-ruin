@@ -11,21 +11,22 @@ use v6;
  our $tic_leeway;
  our $which_tic = 0;
 
-start tic_tic();
+tic_tic();
 my $server = IO::Socket::INET.new(
   :localport($port),
   :type(1),
   :reuse(1),
-  :listen(10)
+  :listen
 );
 
 my $connection = $server.accept;
-while my $inc = $connection.recv(:bin) {
+  while my $inc = $connection.recv(:bin) {
   my $command = $inc.decode;
   $connection.write: "got: $command".encode;
 }
 
 sub tic_tic {
+  say "engine started";
   while (1) {
     $begin_time = DateTime.now().Instant; 
     process_player_commands();
@@ -65,6 +66,7 @@ sub report_events_to_player {
 
 sub determine_if_game_hour_has_passed {
   $which_tic++;
+  say "checking tics";
   unless $which_tic % $ten_tic_seconds {
     say "$ten_tic_seconds tics (10 seconds) have passed"
   }
