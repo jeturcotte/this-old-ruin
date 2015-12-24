@@ -27,16 +27,23 @@ while (1) {
 }
 
 sub accept_player_commands {
+  say 'accept';
   react {
+    say 'react';
     whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
-      my $bs = $conn.chars-supply;
+      say 'whenever';
+      my $bs = $conn.Supply(:bin); #chars-supply;
+      say "bs = $bs, conn = $conn";
       $bs.tap(-> $command { 
-          say $command; 
+          say $command;
           await $conn.write: $command
       } );
       $bs.wait;
+      say 'wait';
     }
+    say 'end whenever';
   }
+  say 'end react';
 }
 
 #sub receive_and_respond ($conn, $command) {
