@@ -32,7 +32,7 @@ sub accept_player_commands {
     say 'react';
     whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
       say 'whenever';
-      my $bs = $conn.Supply(:bin); #chars-supply;
+      my $bs = $conn.Supply(); #chars-supply;
       say "bs = $bs, conn = $conn";
       $bs.tap(-> $command { 
           say $command;
@@ -45,13 +45,6 @@ sub accept_player_commands {
   }
   say 'end react';
 }
-
-#sub receive_and_respond ($conn, $command) {
-#  push @command_buffer, $command;
-#  $conn.write: "received: $command";
-#  say "received: $command";
-#  return 1;
-#}
 
 sub process_player_commands {
   # process player movement request

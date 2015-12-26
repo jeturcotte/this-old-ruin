@@ -11,7 +11,7 @@ use v6;
  our $tic_leeway;
  our $which_tic = 0;
 
-tic_tic();
+start tic_tic();
 my $server = IO::Socket::INET.new(
   :localport($port),
   :type(1),
