@@ -283,4 +283,5 @@ Looks like I'm not the only one!
 * https://github.com/masak/Adventure-Engine
 
 # THANKS
-* Thanks to <lizmat> of the perl6 channel on freenode, directly me to look at Supply and Supply.throttle after my complaining about IO::Socket::Async's not talking easily to telnet clients.
+* Thanks to `lizmat` of the perl6 channel on freenode, directly me to look at Supply and Supply.throttle after my complaining about IO::Socket::Async's not talking easily to telnet clients.
+* Similarly, `RabidGroovy` may be looking into why aforementioned IO::Socket::Async may not be behaving as expected in that circumstance.
