@@ -13,7 +13,10 @@ our $which_tic = 0;
 # TODO -- and/or accept command line arguments as override
 
 # MAIN GAME LOOP
-our @command_buffer;
+our $in = Supplier.new;
+our $incoming = $in.Supply;
+our $out = Supplier.new;
+our $outgoing = $out.Supply;
 start accept_player_commands();
 while (1) {
   $begin_time = DateTime.now().Instant; 
@@ -33,6 +36,7 @@ sub accept_player_commands {
         my $command = $incoming.decode('UTF-8').chomp.uc;
         await $conn.write: "heard: $command\n".encode();
       }
+      $outgoing.tap(-> $message { $conn.write: "$message\n".encode() });
     }
   }
 }
@@ -65,10 +69,10 @@ sub report_events_to_player {
 sub determine_if_game_hour_has_passed {
   $which_tic++;
   unless $which_tic % $ten_tic_seconds {
-    say "$ten_tic_seconds tics (10 seconds) have passed"
+    $out.emit("$ten_tic_seconds tics (10 seconds) have passed");
   }
   if $which_tic == $game_hour {
-    say "A game hour ($which_tic tics) has passed";
+    $out.emit("A game hour ($which_tic tics) has passed");
     $which_tic = 0;
   }
 }
