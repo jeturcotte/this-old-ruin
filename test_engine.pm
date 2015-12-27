@@ -29,9 +29,9 @@ while (1) {
 sub accept_player_commands {
   react {
     whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
-      whenever $conn.Supply(:bin) -> $command {
-        say $command;
-        await $conn.write: $command;
+      whenever $conn.Supply(:bin) -> $incoming {
+        my $command = $incoming.decode('UTF-8').chomp.uc;
+        await $conn.write: "heard: $command\n".encode();
       }
     }
   }
