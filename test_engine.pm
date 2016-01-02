@@ -1,8 +1,10 @@
 use v6;
+use lib 'p6lib';
+use Game::Socket;
 
 # TODO -- Pull the following from config instead
 our $port = 7041;
-our $target_tics_per_second = 24;
+our $target_tics_per_second = 16;
 our $ten_tic_seconds = $target_tics_per_second * 10;
 our $game_hour = 60 * 5 * $target_tics_per_second; 
 our $maximum_wait_time_in_milliseconds = 1000 / $target_tics_per_second;
@@ -31,7 +33,8 @@ while (1) {
 
 sub accept_player_commands {
   react {
-    whenever IO::Socket::Async.listen('localhost',$port) -> $conn {
+    whenever Game::Socket.listen('localhost',$port) -> $conn {
+      
       whenever $conn.Supply(:bin) -> $incoming {
         my $command = $incoming.decode('UTF-8').chomp.uc;
         await $conn.write: "heard: $command\n".encode();
