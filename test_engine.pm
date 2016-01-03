@@ -34,7 +34,6 @@ while (1) {
 sub accept_player_commands {
   react {
     whenever Game::Socket.listen('localhost',$port) -> $conn {
-      
       whenever $conn.Supply(:bin) -> $incoming {
         my $command = $incoming.decode('UTF-8').chomp.uc;
         await $conn.write: "heard: $command\n".encode();
