@@ -1,9 +1,12 @@
-class Game::Socket is IO::Socket::Async {
+use nqp;
 
-    method listen(Game::Socket:U: Str() $host, Int() $port, Int() $backlog = 128,
+class Game::Socket is IO::Socket::Async {
+    my class SocketCancellation is repr('AsyncTask') { }
+    has $!VMIO;
+
+    method listen(IO::Socket::Async:U: Str() $host, Int() $port, Int() $backlog = 128,
                   :$scheduler = $*SCHEDULER) {
         my $cancellation;
-        say "wheeeeeee";
         Supply.on-demand(-> $s {
             $cancellation := nqp::asynclisten(
                 $scheduler.queue,
@@ -13,7 +16,8 @@ class Game::Socket is IO::Socket::Async {
                     }
                     else {
                         my $client_socket := nqp::create(self);
-                        nqp::bindattr($client_socket, Game::Socket, '$!VMIO', socket);
+                        say "wheeee: $client_socket";
+                        nqp::bindattr($client_socket, IO::Socket::Async, '$!VMIO', socket);
                         $s.emit($client_socket);
                     }
                 },
