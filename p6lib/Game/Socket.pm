@@ -3,6 +3,7 @@ use nqp;
 class Game::Socket is IO::Socket::Async {
     my class SocketCancellation is repr('AsyncTask') { }
     has $!VMIO;
+    has str $!client_name;
 
     method listen(IO::Socket::Async:U: Str() $host, Int() $port, Int() $backlog = 128,
                   :$scheduler = $*SCHEDULER) {
@@ -16,8 +17,11 @@ class Game::Socket is IO::Socket::Async {
                     }
                     else {
                         my $client_socket := nqp::create(self);
-                        say "wheeee: $client_socket";
+                        my $numerical_name = $client_socket ~~ /\d+/;
+                        say "client socket $client_socket created";
                         nqp::bindattr($client_socket, IO::Socket::Async, '$!VMIO', socket);
+                        nqp::bindattr_s($client_socket, Game::Socket, '$!client_name', ~$numerical_name); 
+                        #say nqp::getattr($client_socket, Game::Socket, '$!client_name');
                         $s.emit($client_socket);
                     }
                 },
