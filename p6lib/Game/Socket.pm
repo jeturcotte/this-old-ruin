@@ -32,4 +32,8 @@ class Game::Socket is IO::Socket::Async {
         });
     }
 
+    method name() {
+      return $!client_name;
+    }
+
 }

@@ -36,7 +36,7 @@ sub accept_player_commands {
     whenever Game::Socket.listen('localhost',$port) -> $conn {
       whenever $conn.Supply(:bin) -> $incoming {
         my $command = $incoming.decode('UTF-8').chomp.uc;
-        await $conn.write: "heard from $conn: $command\n".encode();
+        await $conn.write: "heard from $conn.name(): $command\n".encode();
       }
       $outgoing.tap(-> $message { $conn.write: "$message\n".encode() });
     }
