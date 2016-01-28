@@ -12,6 +12,7 @@ our $begin_time;
 our $time_elapsed;
 our $tic_leeway;
 our $which_tic = 0;
+our %client_connections;
 # TODO -- and/or accept command line arguments as override
 
 # MAIN GAME LOOP
@@ -34,11 +35,20 @@ while (1) {
 sub accept_player_commands {
   react {
     whenever Game::Socket.listen('localhost',$port) -> $conn {
+      $conn.write: "welcome; the server dubs thee $conn.name()\n".encode();
+      %client_connections{$conn.name()} = time;
       whenever $conn.Supply(:bin) -> $incoming {
         my $command = $incoming.decode('UTF-8').chomp.uc;
-        await $conn.write: "heard from $conn.name(): $command\n".encode();
+        if ($command eq "WHO") {
+          my $listing = %client_connections.keys;
+          await $conn.write: "CLIENTS ONLINE: $listing\n".encode();
+        } else {
+          await $conn.write: "heard from $conn.name(): $command\n".encode();
+        }
       }
-      $outgoing.tap(-> $message { $conn.write: "$message\n".encode() });
+      $outgoing.tap(-> $message { 
+        $conn.write: "$message\n".encode()
+      });
     }
   }
 }
