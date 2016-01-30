@@ -47,7 +47,14 @@ sub accept_player_commands {
         }
       }
       $outgoing.tap(-> $message { 
-        $conn.write: "$message\n".encode()
+        # lets try private commentary
+        if (Int(2.rand)) {
+          if (%client_connections.keys[Int(%client_connections.elems.rand)] eq $conn.name()) {
+            $conn.write: "private to $conn.name(): $message\n".encode();
+          }
+        } else {
+          $conn.write: "global: $message\n".encode();
+        }
       });
     }
   }
