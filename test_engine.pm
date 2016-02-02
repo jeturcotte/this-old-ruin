@@ -48,12 +48,11 @@ sub accept_player_commands {
       }
       $outgoing.tap(-> $message { 
         # lets try private commentary
-        if (Int(2.rand)) {
-          if (%client_connections.keys[Int(%client_connections.elems.rand)] eq $conn.name()) {
-            $conn.write: "private to $conn.name(): $message\n".encode();
-          }
-        } else {
-          $conn.write: "global: $message\n".encode();
+        my ($client, $out) = $message.split("|"); 
+        if ($client eq 'global') {
+          $conn.write: "GLOBAL -> $out\n".encode();
+        } elsif ($client eq $conn.name()) {
+          $conn.write: "PRIVATE -> $out\n".encode();
         }
       });
     }
@@ -87,11 +86,15 @@ sub report_events_to_player {
 
 sub determine_if_game_hour_has_passed {
   $which_tic++;
+  my $target = 'global';
   unless $which_tic % $ten_tic_seconds {
-    $out.emit("$ten_tic_seconds tics (10 seconds) have passed");
+    if (Int(2.rand)) {
+      $target = %client_connections.keys[Int(%client_connections.elems.rand)];
+    }
+    $out.emit("$target|$ten_tic_seconds tics (10 seconds) have passed");
   }
   if $which_tic == $game_hour {
-    $out.emit("A game hour ($which_tic tics) has passed");
+    $out.emit("global|A game hour ($which_tic tics) has passed");
     $which_tic = 0;
   }
 }
