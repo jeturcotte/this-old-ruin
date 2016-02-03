@@ -215,17 +215,7 @@ Here be dragons...!
   * this engine responds to shutdown commands
   * provide a debug mode that reports out the engine's activities
 
-### `v0.2.*` BASIC GAME CLIENT 
-* Build a client that communicates with the game engine 
-  * Allow for the establishment of a connnection to the game engine
-  * Display output from the engine to the client
-  * Allow the client to send commands to the engine
-* Add to the game engine
-  * Add capacity to understand and honor basic movement commands from the client
-  * Add capacity for engine to reject improper commands from the client
-  * Offer random paths with very little description that merely test 
-
-### `v0.3.*` A NOT SO FLAT WORLD
+### `v0.2.*` A NOT SO FLAT WORLD
 * Derive an algorithm for the rendering of plausible `mineral resources` populate the world
   * Determine characteristics of each `mineral resource`
 * Build rendering algorithm that renders a variable but plausible `lithosphere`
@@ -234,7 +224,7 @@ Here be dragons...!
   * Render veins of concentrated `mineral resources` that may be exposed on the surface
 * Utilize resulting topography to render correct impasses to travel
 
-### `v0.4.*` A NOT SO DRY WORLD
+### `v0.3.*` A NOT SO DRY WORLD
 * Derive a `hydrosphere` altitude that will overlay the `lithosphere`
 * Carve `hydrosphere` paths into the `lithosphere`
   * Check prevalence of `mineral resources` to influence water pathing and pooling
@@ -245,7 +235,7 @@ Here be dragons...!
   * Report when character is completely submerged
   * Check character's lung capacity and report if struggling
 
-### `v0.5.*` A NOT SO DEAD WORLD  
+### `v0.4.*` A NOT SO DEAD WORLD  
 * Build an algorithm that renders a `biosphere`
   * Consider altitude to the `hydrosphere`
   * Consider characteristics of the `lithosphere` and local `resources`
@@ -260,14 +250,14 @@ Here be dragons...!
     * Is the creature skittish, obtuse, curious, aggressive?
     * How does the creature defend itself or hunt other creatures?
 
-### `v0.6.*` A NOT SO SAFE WORLD
+### `v0.5.*` A NOT SO SAFE WORLD
 * Build an algorithm for the intelligent animation of `creatures` in the world
 
-### `v0.7.*` A NOT SO POOR WORLD 
+### `v0.6.*` A NOT SO POOR WORLD 
 * Build an algorithm for the population of `objects` that originating from `resources`
 * Build an algorith mfor the population of `objects` on or left by `creatures`
 
-### `v0.8.*` A NOT SO UNINHABITED WORLD
+### `v0.7.*` A NOT SO UNINHABITED WORLD
 * Build an algorithm for the creation of `ruins` and `communities` in the world
   * Develop a mechanism for determining where a construct is more likely to have been built
   * Develop a mechanism for deciding on a plausible layout for the construct
@@ -275,7 +265,7 @@ Here be dragons...!
     * Develop a mechanism for decaying the structure in plausible ways
   * Develop a mechanism for populating the ruin with `creatures` 
 
-### `v0.9.*` NOT SO RANDOM WORLD
+### `v0.8.*` NOT SO RANDOM WORLD
 * Build an algorithm for the establishment of `goals` and `quests` in the world
 
 # ALTERNATIVELY
