@@ -204,11 +204,11 @@ Given an engine, an interface, and a world full of things and places, the game a
 Here be dragons...!
 
 ### `v0.1.*` BASIC GAME ENGINE
-* Establish a tic-loop daemon
-  * this engine separates as a process upon instantiation
-    * Internally, one threaded process listens for player input from the socket
+* -Establish a tic-loop daemon-
+  * -this engine separates as a process upon instantiation-
+    * -Internally, one threaded process listens for player input from the socket-
       * Commands found are sent to a buffer
-    * Separately, it loops through interpretation and rendering commands
+    * -Separately, it loops through interpretation and rendering commands-
       * Commands found in the buffer are interpreted, rejected or accepted, and rewarded
       * Processes that influence the movement and behavior of `creatures` (to be implemented later) are calculated
       * Processes that influence the game climate (to be implemented later) are then calculated
