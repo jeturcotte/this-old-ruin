@@ -5,8 +5,7 @@ class Game::Socket is IO::Socket::Async {
     has $!VMIO;
     has str $!client_name;
 
-    method listen(IO::Socket::Async:U: Str() $host, Int() $port, Int() $backlog = 128,
-                  :$scheduler = $*SCHEDULER) {
+    method listen(IO::Socket::Async:U: Str() $host, Int() $port, Int() $backlog = 128, :$scheduler = $*SCHEDULER) {
         my $cancellation;
         Supply.on-demand(-> $s {
             $cancellation := nqp::asynclisten(
@@ -21,7 +20,6 @@ class Game::Socket is IO::Socket::Async {
                         say "client socket $client_socket created";
                         nqp::bindattr($client_socket, IO::Socket::Async, '$!VMIO', socket);
                         nqp::bindattr_s($client_socket, Game::Socket, '$!client_name', ~$numerical_name); 
-                        #say nqp::getattr($client_socket, Game::Socket, '$!client_name');
                         $s.emit($client_socket);
                     }
                 },
