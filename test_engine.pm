@@ -24,6 +24,7 @@ use Game::Commands;
   our $incoming = $in.Supply;
   our $out = Supplier.new;
   our $outgoing = $out.Supply;
+  our $interpreter = Game::Commands.new;
   start accept_player_commands();
 
   while (1) {
@@ -51,7 +52,7 @@ use Game::Commands;
 
       # LISTEN FOR CLIENT COMMANDS
         whenever $conn.Supply(:bin) -> $incoming {
-          my $command = Game::Command.Normalize($incoming); #.decode('UTF-8').chomp.uc;
+          my $command = $interpreter.Normalize($incoming); #.decode('UTF-8').chomp.uc;
           if ($command eq "WHO") {
             my $listing = %client_connections.keys;
             await $conn.write: "CLIENTS ONLINE: $listing\n".encode();
