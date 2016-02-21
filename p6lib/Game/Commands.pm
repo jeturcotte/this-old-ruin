@@ -6,4 +6,8 @@ class Game::Commands {
     return $command.decode('UTF-8').chomp.uc;
   }
 
+  method Respond($command) {
+    return $command ~ "!\n";   
+  }
+
 } 

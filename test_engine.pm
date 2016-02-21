@@ -53,12 +53,7 @@ use Game::Commands;
       # LISTEN FOR CLIENT COMMANDS
         whenever $conn.Supply(:bin) -> $incoming {
           my $command = $interpreter.Normalize($incoming); #.decode('UTF-8').chomp.uc;
-          if ($command eq "WHO") {
-            my $listing = %client_connections.keys;
-            await $conn.write: "CLIENTS ONLINE: $listing\n".encode();
-          } else {
-            await $conn.write: "heard from $conn.name(): $command\n".encode();
-          }
+          await $conn.write: $interpreter.Respond($command).encode();
         }
 
       # OR EMIT MESSAGES TO THE CLIENT(S)
