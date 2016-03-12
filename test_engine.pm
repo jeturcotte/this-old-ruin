@@ -1,7 +1,6 @@
 use v6;
 use lib 'p6lib';
-use Game::Socket;
-use Game::Commands;
+use Game;
 
 
 # TODO -- Pull the following from config instead

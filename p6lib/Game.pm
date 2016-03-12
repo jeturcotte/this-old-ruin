@@ -5,7 +5,12 @@ class Game {
   has $.welcome_message;
   has %.connected_clients;
 
-  method listener {
+  has $!in = Supplier.new;
+  has $!incoming = $in.Supply;
+  has $!out = Supplier.new;
+  has $!outgoing = $out.Supply;
+
+  method communicator {
 
     react {
       my $interpreter = Game::Commands.new;
