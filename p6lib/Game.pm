@@ -11,7 +11,6 @@ class Game {
   has $!outgoing = $out.Supply;
 
 	method tick {
-		
 		while (1) {
     	$begin_time = DateTime.now().Instant; 
     	process_player_commands();
@@ -22,11 +21,9 @@ class Game {
     	#say "game tic elapsed with a process usage of $tic_leeway\% ($time_elapsed milliseconds used out of $maximum_wait_time)";
     	sleep( ($maximum_wait_time_in_milliseconds - $time_elapsed) / 1000 );
   	}
-
 	}
 
-  method communicator {
-
+  method dialogue {
     react {
       my $interpreter = Game::Commands.new;
 
@@ -52,7 +49,25 @@ class Game {
         });
       } 
     }
+  } # end dialogue method
 
-  } # end method listener
+	method process_player_commands { }
+	
+	method calculate_game_events { }
+	
+	method determine_if_game_hour_has_passed {
+	  $which_tic++;
+	  my $target = 'global';
+	  unless $which_tic % $ten_tic_seconds {
+	    if (Int(2.rand)) {
+	      $target = %client_connections.keys[Int(%client_connections.elems.rand)];
+	    }
+	    $out.emit("$target|$ten_tic_seconds tics (10 seconds) have passed");
+	  }
+	  if $which_tic == $game_hour {
+	    $out.emit("global|A game hour ($which_tic tics) has passed");
+	    $which_tic = 0;
+	  }
+	}
 
 }
